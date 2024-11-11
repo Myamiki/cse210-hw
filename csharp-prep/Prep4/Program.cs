@@ -5,14 +5,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Create a list to store user input numbers
+        // Create a list to store user-input numbers
         List<int> numbers = new List<int>();
 
         Console.WriteLine("Enter a list of numbers, type 0 when finished.");
-        int input;
+        
+        // Variable to store each user input
+        int input = -1; // Initialize with a value that is not 0 to enter the loop
 
         // Loop to take input until the user enters 0
-        do
+        while (input != 0)
         {
             Console.Write("Enter number: ");
             input = int.Parse(Console.ReadLine()); // Convert input to an integer
@@ -22,8 +24,7 @@ class Program
             {
                 numbers.Add(input);
             }
-
-        } while (input != 0); // Stop loop when user inputs 0
+        }
 
         // Calculate the sum of all numbers in the list
         int sum = 0;
@@ -41,7 +42,7 @@ class Program
         int max = numbers[0];
         foreach (int num in numbers)
         {
-            if (num > max) // Update max if current number is greater
+            if (num > max) // Update max if the current number is greater
             {
                 max = num;
             }
