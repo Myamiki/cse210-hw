@@ -1,6 +1,5 @@
 // Program.cs
 // This is the main file where the program starts. It creates instances of Job and Resume classes and displays the resume.
-
 using System;
 
 class Program
