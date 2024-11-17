@@ -21,9 +21,11 @@ class Program
             Console.WriteLine("\nJournal Menu:");
             Console.WriteLine("1. Write a New Entry");
             Console.WriteLine("2. Display Journal");
-            Console.WriteLine("3. Save Journal to File");
-            Console.WriteLine("4. Load Journal from File");
-            Console.WriteLine("5. Quit");
+            Console.WriteLine("3. Save Journal to CSV File");
+            Console.WriteLine("4. Load Journal from CSV File");
+            Console.WriteLine("5. Save Journal to JSON File");
+            Console.WriteLine("6. Load Journal from JSON File");
+            Console.WriteLine("7. Quit");
             Console.Write("Choose an option: ");
             string choice = Console.ReadLine();
 
@@ -36,7 +38,9 @@ class Program
                     Console.WriteLine($"\nPrompt: {prompt}");
                     Console.Write("Your response: ");
                     string response = Console.ReadLine();
-                    journal.AddEntry(new Entry(prompt, response));
+                    Console.Write("Your mood (e.g., Happy, Sad, Excited): ");
+                    string mood = Console.ReadLine();
+                    journal.AddEntry(new Entry(prompt, response, mood));
                     break;
 
                 case "2":
@@ -44,18 +48,30 @@ class Program
                     break;
 
                 case "3":
-                    Console.Write("Enter filename to save to: ");
-                    string saveFile = Console.ReadLine();
-                    journal.SaveToFile(saveFile);
+                    Console.Write("Enter filename to save as CSV: ");
+                    string csvFile = Console.ReadLine();
+                    journal.SaveToCSV(csvFile);
                     break;
 
                 case "4":
-                    Console.Write("Enter filename to load from: ");
-                    string loadFile = Console.ReadLine();
-                    journal.LoadFromFile(loadFile);
+                    Console.Write("Enter filename to load from CSV: ");
+                    string loadCsvFile = Console.ReadLine();
+                    journal.LoadFromCSV(loadCsvFile);
                     break;
 
                 case "5":
+                    Console.Write("Enter filename to save as JSON: ");
+                    string jsonFile = Console.ReadLine();
+                    journal.SaveToJSON(jsonFile);
+                    break;
+
+                case "6":
+                    Console.Write("Enter filename to load from JSON: ");
+                    string loadJsonFile = Console.ReadLine();
+                    journal.LoadFromJSON(loadJsonFile);
+                    break;
+
+                case "7":
                     isRunning = false;
                     Console.WriteLine("Goodbye!");
                     break;
@@ -67,3 +83,8 @@ class Program
         }
     }
 }
+
+// Exceeding Requirements:
+// 1. Added a mood tracker to each journal entry.
+// 2. Enabled saving and loading in both CSV and JSON formats.
+// 3. Improved data compatibility with external tools like Excel and JSON readers.
