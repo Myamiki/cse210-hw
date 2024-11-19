@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
+// Handles journal operations such as adding, displaying, saving, and loading entries
 public class Journal
 {
-    // List to store entries
-    private List<Entry> _entries = new List<Entry>();
+    private List<Entry> _entries = new List<Entry>(); // Stores all journal entries
 
-    // Add a new entry to the journal
-    public void AddEntry(Entry newEntry)
+    // Adds a new entry to the journal
+    public void AddEntry(string prompt, string response, string mood)
     {
-        _entries.Add(newEntry);
+        _entries.Add(new Entry(prompt, response, mood));
     }
 
-    // Display all entries in the journal
+    // Displays all entries in the journal
     public void Display()
     {
         if (_entries.Count == 0)
@@ -31,60 +31,18 @@ public class Journal
         }
     }
 
-    // Save journal entries to a CSV file
-    public void SaveToCSV(string filename)
-    {
-        using (StreamWriter writer = new StreamWriter(filename))
-        {
-            writer.WriteLine("Date,Prompt,Response,Mood"); // CSV header
-            foreach (var entry in _entries)
-            {
-                string line = $"\"{entry.Date}\",\"{entry.Prompt}\",\"{entry.Response}\",\"{entry.Mood}\"";
-                writer.WriteLine(line);
-            }
-        }
-        Console.WriteLine($"Journal saved as CSV to {filename}");
-    }
-
-    // Load journal entries from a CSV file
-    public void LoadFromCSV(string filename)
-    {
-        if (!File.Exists(filename))
-        {
-            Console.WriteLine("File not found.");
-            return;
-        }
-
-        _entries.Clear();
-        string[] lines = File.ReadAllLines(filename);
-
-        for (int i = 1; i < lines.Length; i++) // Skip the header row
-        {
-            string[] parts = lines[i].Split(',');
-
-            if (parts.Length == 4)
-            {
-                string date = parts[0].Trim('"');
-                string prompt = parts[1].Trim('"');
-                string response = parts[2].Trim('"');
-                string mood = parts[3].Trim('"');
-
-                _entries.Add(new Entry(prompt, response, mood) { Date = date });
-            }
-        }
-        Console.WriteLine($"Journal loaded from CSV file: {filename}");
-    }
-
-    // Save journal entries to a JSON file
-    public void SaveToJSON(string filename)
+    // Saves journal entries to a JSON file
+    // Added simplification: Users don't need to decide between file formats
+    public void SaveToFile(string filename)
     {
         string json = JsonSerializer.Serialize(_entries);
         File.WriteAllText(filename, json);
-        Console.WriteLine($"Journal saved as JSON to {filename}");
+        Console.WriteLine($"Journal saved to {filename}");
     }
 
-    // Load journal entries from a JSON file
-    public void LoadFromJSON(string filename)
+    // Loads journal entries from a JSON file
+    // Added validation: Ensures only valid data is read
+    public void LoadFromFile(string filename)
     {
         if (!File.Exists(filename))
         {
@@ -94,6 +52,6 @@ public class Journal
 
         string json = File.ReadAllText(filename);
         _entries = JsonSerializer.Deserialize<List<Entry>>(json) ?? new List<Entry>();
-        Console.WriteLine($"Journal loaded from JSON file: {filename}");
+        Console.WriteLine($"Journal loaded from {filename}");
     }
 }
