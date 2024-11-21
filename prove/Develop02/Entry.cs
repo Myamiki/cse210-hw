@@ -1,12 +1,12 @@
 using System;
 
+// Represents a single journal entry
 public class Entry
 {
-    // Properties of a journal entry
-    public string Date { get; set; }
-    public string Prompt { get; set; }
-    public string Response { get; set; }
-    public string Mood { get; set; } // New property for mood tracking
+    public string Date { get; set; } // Date of the entry
+    public string Prompt { get; set; } // Prompt question
+    public string Response { get; set; } // User's response
+    public string Mood { get; set; } // Mood of the user
 
     // Constructor to initialize an entry
     public Entry(string prompt, string response, string mood)
@@ -17,7 +17,7 @@ public class Entry
         Mood = mood;
     }
 
-    // Display entry details
+    // Displays the entry details in a user-friendly format
     public void Display()
     {
         Console.WriteLine($"Date: {Date}");
