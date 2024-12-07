@@ -21,11 +21,11 @@ class Program
         //results for Order 1
         Console.WriteLine(order1.GetPackingLabel());
         Console.WriteLine(order1.GetShippingLabel());
-        Console.WriteLine($"Total Cost: ${order1.CalculateTotalCost():F2}\n");
+        Console.WriteLine($"Total Cost: R{order1.CalculateTotalCost():F2}\n");
 
         //results for Order 2
         Console.WriteLine(order2.GetPackingLabel());
         Console.WriteLine(order2.GetShippingLabel());
-        Console.WriteLine($"Total Cost: ${order2.CalculateTotalCost():F2}\n");
+        Console.WriteLine($"Total Cost: R{order2.CalculateTotalCost():F2}\n");
     }
 }
