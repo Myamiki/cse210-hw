@@ -8,7 +8,7 @@ class Program
         Address address1 = new Address("1528 Bezuidenhout St", "Piet Retief", "Mpumalanga", "South Africa");
         Customer customer1 = new Customer("Janet Peters", address1);
         Order order1 = new Order(customer1);
-        order1.AddProduct(new Product("TELEVISION ISTAR 55", "Smart S55GW01-Black", 1500.00, 1));
+        order1.AddProduct(new Product("TELEVISION ISTAR 55-inch", "Smart S55GW01-Black", 1500.00, 1));
         order1.AddProduct(new Product("Hair Dryer", "BHD510/00", 76.00, 3));
 
         //Order 2
