@@ -3,70 +3,12 @@ using System.Collections.Generic;
 
 namespace YouTubeVideos
 {
-    // Comment Class
-    class Comment
-    {
-        public string Name { get; set; }
-        public string Text { get; set; }
-
-        public Comment(string name, string text)
-        {
-            Name = name;
-            Text = text;
-        }
-    }
-
-    // Video Class
-    class Video
-    {
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public int Length { get; set; } 
-        private List<Comment> Comments { get; set; }
-
-        public Video(string title, string author, int length)
-        {
-            Title = title;
-            Author = author;
-            Length = length;
-            Comments = new List<Comment>();
-        }
-
-        // Add a comment to the video
-        public void AddComment(Comment comment)
-        {
-            Comments.Add(comment);
-        }
-
-        // Get the number of comments
-        public int GetCommentCount()
-        {
-            return Comments.Count;
-        }
-
-        // Display video details
-        public void DisplayVideoDetails()
-        {
-            Console.WriteLine($"Title: {Title}");
-            Console.WriteLine($"Author: {Author}");
-            Console.WriteLine($"Length: {Length} seconds");
-            Console.WriteLine($"Number of Comments: {GetCommentCount()}");
-            Console.WriteLine("Comments:");
-            foreach (var comment in Comments)
-            {
-                Console.WriteLine($"- {comment.Name}: {comment.Text}");
-            }
-            Console.WriteLine(new string('-', 30)); // Separator
-        }
-    }
-
-    // Main Program
     class Program
     {
         static void Main(string[] args)
         {
-            // Creation of videos section
-            Video video1 = new Video("C# Tutorial for beginners 2024", "Jeff Troys", 700);
+            // Create videos
+            Video video1 = new Video("C# Tutorial for Beginners 2024", "Jeff Troys", 700);
             Video video2 = new Video("C# Introduction to Abstraction", "Timoth Shona", 850);
             Video video3 = new Video("C# Abstract Classes and Methods Part 1", "Brian Smith", 470);
 
@@ -81,10 +23,11 @@ namespace YouTubeVideos
             video2.AddComment(new Comment("Brian", "I have always struggled with abstraction, but this tutorial made it click."));
 
             // Add comments to video 3
-            video3.AddComment(new Comment("Peter", "This is exactly what I needed to finally understand abstract classes. Brian Smith made it so clear. Thanks for this amazing tutorial!"));   
+            video3.AddComment(new Comment("Peter", "This is exactly what I needed to finally understand abstract classes. Brian Smith made it so clear. Thanks for this amazing tutorial!"));
             video3.AddComment(new Comment("Mandy", "Brian Smith was so helpful."));
-            video3.AddComment(new Comment("Victor","Thank you so much!"));
-            video3.AddComment(new Comment("Chloe","The examples were simple yet effective."));
+            video3.AddComment(new Comment("Victor", "Thank you so much!"));
+            video3.AddComment(new Comment("Chloe", "The examples were simple yet effective."));
+
             // Store videos in a list
             List<Video> videos = new List<Video> { video1, video2, video3 };
 
@@ -96,4 +39,3 @@ namespace YouTubeVideos
         }
     }
 }
-
