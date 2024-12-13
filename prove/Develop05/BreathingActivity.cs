@@ -1,34 +1,11 @@
-/*public class BreathingActivity : Activity
-{
-  //This function sets up the activity by giving it a name and a description
-    public BreathingActivity()
-    {
-       ActivityName = "Breathing Activity";
-        ActivityDescription = "This activity will help you relax by guiding your breathing.";
-    }
-    //This function gives a specific instruction for how the activity runs.
-    public override void PerformActivity()
-    {
-        IncrementActivityCount();  
-        StartMessage();
-        for (int i = 0; i <ActivityDuration / 6; i++)
-        {
-            Console.WriteLine("Breathe in...");
-            PauseWithAnimation(3);
-            Console.WriteLine("Breathe out...");
-            PauseWithAnimation(3);
-        }
-        EndMessage();
-    }
-}
-*/
+
 public class BreathingActivity : Activity
 {
     // Constructor to set the activity name and description.
     public BreathingActivity()
     {
         ActivityName = "Breathing Activity";
-        ActivityDescription = "This activity will help you relax by guiding your breathing.";
+        ActivityDescription = "This activity will help you relax by walking you through breathing in and out slowly, please clear your mind and focus on your breathing.";
     }
 
     // This function gives specific instructions on how the breathing activity runs.
