@@ -44,7 +44,7 @@ public class GoalManager
                     Console.WriteLine("Exiting Goal Manager.");
                     return;
                 default:
-                    Console.WriteLine("Invalid choice. Please try again.");
+                    Console.WriteLine("You entered invalid choice. Please try again.");
                     break;
             }
         }
@@ -52,9 +52,9 @@ public class GoalManager
 
     private void CreateSimpleGoal()
     {
-        Console.Write("Enter goal name: ");
+        Console.Write("Enter goal name of your choice: ");
         string name = Console.ReadLine();
-        Console.Write("Enter goal description: ");
+        Console.Write("Enter the goal description: ");
         string description = Console.ReadLine();
         Console.Write("Enter points for this goal: ");
         int points = int.Parse(Console.ReadLine());
@@ -63,9 +63,9 @@ public class GoalManager
 
     private void CreateEternalGoal()
     {
-        Console.Write("Enter goal name: ");
+        Console.Write("Enter goal name of your choice: ");
         string name = Console.ReadLine();
-        Console.Write("Enter goal description: ");
+        Console.Write("Enter the goal description: ");
         string description = Console.ReadLine();
         Console.Write("Enter points for this goal: ");
         int points = int.Parse(Console.ReadLine());
@@ -74,9 +74,9 @@ public class GoalManager
 
     private void CreateChecklistGoal()
     {
-        Console.Write("Enter goal name: ");
+        Console.Write("Enter goal name of your choice: ");
         string name = Console.ReadLine();
-        Console.Write("Enter goal description: ");
+        Console.Write("Enter the goal description: ");
         string description = Console.ReadLine();
         Console.Write("Enter points for this goal: ");
         int points = int.Parse(Console.ReadLine());
@@ -157,3 +157,20 @@ public class GoalManager
         }
     }
 }
+
+/*The GoalManager class helps manage different types of goals.
+ It allows users to create, list, record events, and save goals. 
+ 
+ The class has a list of goals stored in a text file named goals.txt.
+
+In the Run method, the program shows a menu where users can choose actions like creating simple, eternal, or checklist goals, listing goals,
+ or recording events. 
+
+CreateSimpleGoal(), CreateEternalGoal(), and CreateChecklistGoal() let users enter goal details and add them to the list.
+
+ListGoals() shows all goals with their details.
+RecordEvent() records progress for a specific goal.
+SaveGoals() saves all goals to the file.
+LoadGoals() loads goals from the file when the program starts.
+
+The program keeps running until the user chooses to exit. */
