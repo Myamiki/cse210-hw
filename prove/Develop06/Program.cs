@@ -171,3 +171,6 @@ class Program
 
 /*This is where the user interacts with the program. It lets the user create goals, mark them as done, and save or load them from a file. 
 It takes the logic from the goal files and makes it work with the user, making the program feel interactive. */
+
+/*This program can save your progress the goals you’ve set and completed and load it later. This is done with the SaveGoals() and LoadGoals() methods. 
+So, if you close the program and come back later, your goals are still there! This adds practical creativity, making sure your data is saved and ready when you return.*/
