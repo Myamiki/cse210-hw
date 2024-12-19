@@ -7,10 +7,10 @@ public class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-        
+        // No event recording for eternal goals
     }
 
-    public override bool IsComplete() => false;
+    public override bool IsComplete() => false; // Eternal goals are never complete
 
     public override string GetDetailsString()
     {
@@ -22,12 +22,3 @@ public class EternalGoal : Goal
         return $"Eternal,{name},{description},{points}";
     }
 }
-
-/* The EternalGoal class represents a goal that never gets completed. 
-It inherits from the Goal class and has a constructor to set up the goal's name, description, and points. 
-
-The RecordEvent() method doesn't do anything because the goal is eternal. 
-The IsComplete() method always returns false since the goal never finishes. 
-
-The GetDetailsString() method returns a summary of the goal, and the ToFileString() method formats the goal's data to save it to a file.
- This class is for goals that don't have an end.*/
